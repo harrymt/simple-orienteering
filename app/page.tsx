@@ -5,6 +5,9 @@ import * as React from "react"
 import Map from "react-map-gl/maplibre"
 import "maplibre-gl/dist/maplibre-gl.css"
 import { Button } from "components/Button/Button"
+import { CourseOverlay } from "components/CourseOverlay/CourseOverlay"
+import CustomOverlay from "components/custom-overlay/custom-overlay"
+import { Test } from "components/Test"
 
 // export const metadata: Metadata = {
 //   title: "Next.js Enterprise Boilerplate",
@@ -71,7 +74,13 @@ export default function Web() {
               onMove={(evt) => setViewState(evt.viewState)}
               style={{ width: 600, height: 400 }}
               mapStyle="https://tiles.openfreemap.org/styles/bright"
-            />
+            >
+              <CustomOverlay>
+                <CourseOverlay />
+              </CustomOverlay>
+              {/* Working: */}
+              <Test />
+            </Map>
           </div>
           <Button
             onClick={() => {
